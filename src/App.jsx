@@ -6,6 +6,11 @@ import BestBooks from './components/BestBooks';
 function App() {
 
     const [books, setBooks] = useState([]);
+    // const [booksData, setBooksData] useState({});
+
+    // function handleSubmit(event) {
+    //     event.preventDefault,type === 'checkbox' ? event.target.checked : event.target.
+    // }
 
     useEffect(() => {
         getBooks();
@@ -13,9 +18,22 @@ function App() {
     
     async function getBooks() {
         try{
-            const response = await axios.get('http://localhost:3000/books');
+            const response = await axios.get('https://can-of-books-backend-z3vl.onrender.com/books');
             setBooks(response.data);
            
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    async function deleteBook(id) {
+        try {
+            const response = await axios.delete(`http://localhost:3000/books/${id}`);
+            let deletedBook = response.data;
+            let newBooks = books.filter( function(book) {
+                return book._id !== deletedBook._id;
+            });
+            setBooks(newBooks);
         } catch (error) {
             console.error(error);
         }
