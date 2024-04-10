@@ -74,6 +74,7 @@ Additionally, we'll be creating both the front-end and back-end components of th
   04/09/2024
 
 **TIME SPENT**:
+
     - Estimate of time needed to complete: 4 hours
     - Start Time: 5:30 pm
     - Finish Time: 9:15 pm
