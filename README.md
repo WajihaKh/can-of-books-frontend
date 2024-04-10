@@ -2,7 +2,7 @@
 
 ## Wajiha Khan & Demarquies Jolley
 
-[COLLARBORATION TERMS & CREDITS]
+[COLLARBORATION TERMS & CREDITS](https://github.com/WajihaKh/can-of-books-frontend/blob/main/Collab-N-Credits.md)
 
   **Version** 1.0.0
 
