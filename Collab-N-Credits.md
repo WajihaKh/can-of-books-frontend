@@ -10,21 +10,23 @@
 
 **Strengths**:
 
-- Troubleshooting and resource utilization.
-
 **Wajiha**:
 
-- Proficient in JavaScript and React libraries.
+- Proficient in JavaScript and React libraries
+
+**Demarquies**:
+
+- Troubleshooting and resource utilization.
 
 **Utilizing Strengths**:
 
-- Demarquies will focus on troubleshooting and leveraging resources effectively.
 - Wajiha will implement JavaScript and React functionalities for the application.
+- Demarquies will focus on troubleshooting and leveraging resources effectively.
 
 **Areas for Development**:
 
-- Demarquies aims to improve understanding of data flow and APIs.
 - Wajiha seeks to enhance skills in Bootstrap and CSS for responsive design.
+- Demarquies aims to improve understanding of data flow and APIs.
 
 **Day-to-Day Approach**:
 
