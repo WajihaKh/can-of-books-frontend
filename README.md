@@ -10,11 +10,11 @@
 
 - We're building a website dedicated to tracking impactful books and recommending new reads. Beyond being a class assignment, this project is driven by a passion for literature and the transformative power of books.
 
-    -Tracking Impactful Books: Users can log books that have made a significant impact on them, recording details like title, description, and status.
+    - Tracking Impactful Books: Users can log books that have made a significant impact on them, recording details like title, description, and status.
 
-    -Recommendation System: Providing personalized book recommendations based on user interests and preferences.
+    - Recommendation System: Providing personalized book recommendations based on user interests and preferences.
 
-    -Community Engagement: Fostering a community where users can share favorite books, reviews, and recommendations with others.
+    - Community Engagement: Fostering a community where users can share favorite books, reviews, and recommendations with others.
 
 Additionally, we'll be creating both the front-end and back-end components of this website to ensure they seamlessly connect. This project aims to create a platform that enhances the reading experience, promotes the value of books, and connects book enthusiasts through technology.
 
@@ -37,9 +37,13 @@ Additionally, we'll be creating both the front-end and back-end components of th
   04/08/2024 2:00 am
 
 **TIME SPENT**:
+
     - Estimate of time needed to complete: 4 hours
+    
     - Start Time: 6:30 pm --break-- 9:40 pm
+    
     - Finish Time: 2:00 am
+    
     - Actual time needed to complete: 6 hours
 
   **Version** 2.0.0
@@ -59,14 +63,19 @@ Additionally, we'll be creating both the front-end and back-end components of th
 **Getting Started**:
 
     - Create a New Component For Modal
+    
     - Update Book Component
+    
     - Update State in Parent Component
 
 **Architecture**:
 
 - React: A JavaScript library for building user interfaces using reusable components.
+  
 - React Router: For managing navigation and routing within the application.
+  
 - React Bootstrap: Utilized for responsive, using Bootstrap components adapted for React.
+  
 - Axios:  HTTP Client.
 
 **Change Log**:
@@ -76,6 +85,10 @@ Additionally, we'll be creating both the front-end and back-end components of th
 **TIME SPENT**:
 
     - Estimate of time needed to complete: 4 hours
+    
     - Start Time: 5:30 pm
+    
     - Finish Time: 9:15 pm
+    
     - Actual time needed to complete: 3 hours and 45 minutes
+    
