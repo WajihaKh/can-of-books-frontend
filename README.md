@@ -63,9 +63,7 @@ Additionally, we'll be creating both the front-end and back-end components of th
 **Getting Started**:
 
     - Create a New Component For Modal
-    
     - Update Book Component
-    
     - Update State in Parent Component
 
 **Architecture**:
