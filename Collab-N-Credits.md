@@ -10,13 +10,8 @@
 
 **Strengths**:
 
-**Wajiha**:
-
-- Proficient in JavaScript and React libraries
-
-**Demarquies**:
-
-- Troubleshooting and resource utilization.
+- Wajiha is proficient in JavaScript and React libraries
+- Demarquies is proficient in troubleshooting and resource utilization.
 
 **Utilizing Strengths**:
 
