@@ -79,9 +79,41 @@ Additionally, we'll be creating both the front-end and back-end components of th
     - Finish Time: 9:15 pm
     - Actual time needed to complete: 3 hours and 45 minutes
 
+**Overview**:
+
+-The application is designed to manage a collection of books. It allows users to perform the following actions:
+
+  - View Books: Display a list of books with their titles, descriptions, and statuses (e.g., "available", "borrowed", etc.).
+  - Add Books: Users can add new books to the collection by providing details such as title, description, and status.
+
+  - Update Books: Books in the collection can be updated, allowing users to modify their title, description, or status.
+  
+  - Delete Books: Users can remove books from the collection.
+
+**Getting Started**:
+
+- Create/Edit Form Component
+  Create a new component to render a form for editing book details.
+- Modal Trigger Button
+  Add a button to trigger the edit book modal.
+- Handle Form Submission
+  Implement a function (updateBook) to make an API call to update the book details on the server.
+  Pass this function down to the BestBooks component as a prop.
+
+**Architecture**:
+
+React: A JavaScript library for building user interfaces using reusable components.
+- React Router: For managing navigation and routing within the application.
+- React Bootstrap: Utilized for responsive, using Bootstrap components adapted for React.
+- Axios:  HTTP Client.
+
+**Change Log**:
+
+04/10/2024
+
 **TIME SPENT**:
 
-- estimate of time needed to complete: 3 hours
-- start time: 5:00 pm
-- Finish time:
-- Actual time needed to complete:
+- Estimate of time needed to complete: 3 hours
+- Start time: 5:00 pm
+- Finish time: 11:00 pm --
+- Actual time needed to complete: *DNF*

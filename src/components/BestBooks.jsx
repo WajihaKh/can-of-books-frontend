@@ -8,7 +8,11 @@ import UpdateFormBook from "./UpdateFormBook";
 function BestBooks(props) {
   const [openAddBook, setOpenAddBook] = useState(false);
   const [openUpdateBook, setOpenUpdateBook] = useState(false);
-  const [selectedBook, setSelectedBook] = useState(null);
+  const [selectedBookId, setSelectedBookId] = useState(null);
+
+  const handleEditBook = (bookId) => {
+    setSelectedBookId(bookId === selectedBookId ? null : bookId);
+  };
 
   async function deleteThisBook(event) {
     let id = event.target.id;
@@ -18,12 +22,12 @@ function BestBooks(props) {
   const handleOpenUpdateBook = (book) => {
     setOpenUpdateBook(true);
     // setSelectedBook(book);
-  };
+  
   return (
     <>
       <h2>Books</h2>
 
-      <button onClick={() => setOpenAddBook(true)}>Add a book!</button>
+      <button onClick={() => props.handleAddBook({})}>Add a book!</button>
 
       {/* <BookFormModal show={openAddBook} onHide={() => {
         setOpenAddBook(false);
@@ -50,12 +54,13 @@ function BestBooks(props) {
             <button onClick={() => props.handleUpdateBook(book)}>
               Update Book!
             </button>
-            <button onClick={() => setSelectedBook(book._id)}>Edit Me</button>
+            <button onClick={() => handleEditBook(book._id)}>Edit Me</button>
             {/* find a way to show and hide the updateformbook component. When show is = true, then show the edit me button */}
-            <When condition={selectedBook === book._id}>
+            <When condition={selectedBookId === book._id}>
               <UpdateFormBook
                 selectedBook={book}
                 handleUpdateBook={props.handleUpdateBook}
+                setSelectedBookId={setSelectedBookId}
               />
             </When>
           </Carousel.Item>
@@ -64,5 +69,5 @@ function BestBooks(props) {
     </>
   );
 }
-
+}
 export default BestBooks;
