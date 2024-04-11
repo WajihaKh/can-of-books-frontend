@@ -78,3 +78,10 @@ Additionally, we'll be creating both the front-end and back-end components of th
     - Start Time: 5:30 pm
     - Finish Time: 9:15 pm
     - Actual time needed to complete: 3 hours and 45 minutes
+
+**TIME SPENT**:
+
+- estimate of time needed to complete: 3 hours
+- start time: 5:00 pm
+- Finish time:
+- Actual time needed to complete:
