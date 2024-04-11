@@ -22,6 +22,7 @@ function BestBooks(props) {
   const handleOpenUpdateBook = (book) => {
     setOpenUpdateBook(true);
     // setSelectedBook(book);
+  }
   
   return (
     <>
@@ -69,5 +70,5 @@ function BestBooks(props) {
     </>
   );
 }
-}
+
 export default BestBooks;

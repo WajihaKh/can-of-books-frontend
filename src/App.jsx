@@ -73,7 +73,7 @@ function App() {
       console.error(error);
     }
   }
-
+  console.log('books ', books);
   return (
     <>
       <BestBooks
