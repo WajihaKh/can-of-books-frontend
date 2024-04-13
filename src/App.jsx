@@ -6,81 +6,81 @@ import {When} from 'react-if';
 // import './App.css'
 
 function App() {
-  const [books, setBooks] = useState([]);
+  // const [books, setBooks] = useState([]);
 
 
-  useEffect(() => {
-    getBooks();
-  }, []);
+  // useEffect(() => {
+  //   getBooks();
+  // }, []);
 
-  async function getBooks() {
-    try {
-      const response = await axios.get(
-        "https://can-of-books-backend-z3vl.onrender.com/books"
-      );
-      setBooks(response.data);
-    } catch (error) {
-      console.error(error);
-    }
-  }
+  // async function getBooks() {
+  //   try {
+  //     const response = await axios.get(
+  //       "https://can-of-books-backend-z3vl.onrender.com/books"
+  //     );
+  //     setBooks(response.data);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // }
 
-  async function deleteBook(id) {
-    console.log("bookToBeDeleted ", id);
-    try {
-      const response = await axios.delete(
-        `https://can-of-books-backend-z3vl.onrender.com/books/${id}`
-      );
-      console.log("books._id", books._id);
-      let deletedBook = response.data;
-      console.log("deletedBook ", deletedBook);
+  // async function deleteBook(id) {
+  //   console.log("bookToBeDeleted ", id);
+  //   try {
+  //     const response = await axios.delete(
+  //       `https://can-of-books-backend-z3vl.onrender.com/books/${id}`
+  //     );
+  //     console.log("books._id", books._id);
+  //     let deletedBook = response.data;
+  //     console.log("deletedBook ", deletedBook);
 
-      let newBookList = books.filter(function (bookObj) {
-        return bookObj._id !== deletedBook._id;
-      });
-      setBooks(newBookList);
-    } catch (error) {
-      console.error(error);
-    }
-  }
+  //     let newBookList = books.filter(function (bookObj) {
+  //       return bookObj._id !== deletedBook._id;
+  //     });
+  //     setBooks(newBookList);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // }
 
-  async function addBook(book) {
-    try {
-      let response = await axios.post(
-        "https://can-of-books-backend-z3vl.onrender.com/books",
-        book
-      );
-      let newBookList = response.data;
-      setBooks([...books, newBookList]);
-    } catch (error) {
-      console.error(error);
-    }
-  }
+  // async function addBook(book) {
+  //   try {
+  //     let response = await axios.post(
+  //       "https://can-of-books-backend-z3vl.onrender.com/books",
+  //       book
+  //     );
+  //     let newBookList = response.data;
+  //     setBooks([...books, newBookList]);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // }
 
-  async function updateBook(updatedBook) {
-    console.log('updatedBook ', updatedBook);
-    // setSelectedBook(updatedBook);
-    try {
-      const response = await axios.put(
-        `https://can-of-books-backend-z3vl.onrender.com/books/${updatedBook._id}`,
-        updatedBook
-      );
-      const updateBook = response.data;
-      const updatedBookList = books.map((b) =>
-        b._id === updateBook._id ? updateBook : b
-      );
-      setBooks(updatedBookList);
-    } catch (error) {
-      console.error(error);
-    }
-  }
-
+  // async function updateBook(updatedBook) {
+  //   console.log('updatedBook ', updatedBook);
+  //   // setSelectedBook(updatedBook);
+  //   try {
+  //     const response = await axios.put(
+  //       `https://can-of-books-backend-z3vl.onrender.com/books/${updatedBook._id}`,
+  //       updatedBook
+  //     );
+  //     const updateBook = response.data;
+  //     const updatedBookList = books.map((b) =>
+  //       b._id === updateBook._id ? updateBook : b
+  //     );
+  //     setBooks(updatedBookList);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // }
+  // console.log('books ', books);
   return (
     <>
       <BestBooks
-        handleAddBook={addBook}
-        handleUpdateBook={updateBook}
-        handleDelete={deleteBook}
-        books={books}
+        // handleAddBook={addBook}
+        // handleUpdateBook={updateBook}
+        // handleDelete={deleteBook}
+        // books={books}
       />
       {/* <UpdateFormBook
       selectedBook={selectedBook}

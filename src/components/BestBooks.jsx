@@ -1,33 +1,139 @@
 import Carousel from "react-bootstrap/Carousel";
 import genZHistoryMakingTime from "../assets/genZ-history-making-time.jpg";
-import BookFormModal from "./BookFormModal";
-import React, { useState } from "react";
+import BookModal from "./BookModal";
+import { useState, useEffect } from "react";
 import { When } from "react-if";
-import UpdateFormBook from "./UpdateFormBook";
+// import UpdateFormBook from "./UpdateFormBook";
+import axios from "axios";
+import AddBook from "./AddBook";
 
-function BestBooks(props) {
-  const [openAddBook, setOpenAddBook] = useState(false);
+function BestBooks() {
+  // const [openAddBook, setOpenAddBook] = useState(false);
   const [openUpdateBook, setOpenUpdateBook] = useState(false);
+  // change openUpdateBook to false when its working
   const [selectedBookId, setSelectedBookId] = useState(null);
+  const [books, setBooks] = useState([]);
+  const [booksData, setBooksData] = useState ({});
+  const [openNewBookModal, setOpenNewBookModal] =useState(false);
 
-  const handleEditBook = (bookId) => {
-    setSelectedBookId(bookId === selectedBookId ? null : bookId);
-  };
 
-  async function deleteThisBook(event) {
-    let id = event.target.id;
-    props.handleDelete(id);
+
+  useEffect(() => {
+    getBooks();
+  }, []);
+
+  async function getBooks() {
+    try {
+      const response = await axios.get(
+        "https://can-of-books-backend-z3vl.onrender.com/books"
+      );
+      setBooks(response.data);
+    } catch (error) {
+      console.error(error);
+    }
   }
 
-  const handleOpenUpdateBook = (book) => {
+  async function deleteBook(id) {
+    console.log("bookToBeDeleted ", id);
+    try {
+      const response = await axios.delete(
+        `https://can-of-books-backend-z3vl.onrender.com/books/${id}`
+      );
+      console.log("books._id", books._id);
+      let deletedBook = response.data;
+      console.log("deletedBook ", deletedBook);
+
+      let newBookList = books.filter(function (bookObj) {
+        return bookObj._id !== deletedBook._id;
+      });
+      setBooks(newBookList);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async function addBook(book) {
+    try {
+      let response = await axios.post(
+        "https://can-of-books-backend-z3vl.onrender.com/books",
+        book
+      );
+      let newBookList = response.data;
+      setBooks([...books, newBookList]);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async function updateBook(updatedBook) {
+    console.log('updatedBook ', updatedBook);
+    // setSelectedBook(updatedBook);
+    try {
+      const response = await axios.put(
+        `https://can-of-books-backend-z3vl.onrender.com/books/${updatedBook._id}`,
+        updatedBook
+      );
+      const updateBook = response.data;
+      const updatedBookList = books.map((b) =>
+        b._id === updateBook._id ? updateBook : b
+      );
+      setBooks(updatedBookList);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  // function handleChange(event) {
+  //   setBooksData({
+  //     ...booksData,
+  //     [event.target.name]: value
+  //   });
+  // }
+
+  function handleSubmit(event) {
+    console.log('event ', event);
+    // event.preventDefault();
+    // addBook(booksData)
+    setOpenNewBookModal(true);
+  }
+
+  const handleEditBook = (bookId) => {
+    setSelectedBookId(bookId);
     setOpenUpdateBook(true);
-    // setSelectedBook(book);
+  //   setSelectedBookId(bookId === selectedBookId ? null : bookId);
+  //   console.log('bookId ', bookId);
+  //   handleOpenUpdateBook()
+  };
+
+  const handleCloseNewBookModal = () => {
+    setOpenNewBookModal(false);
+  }
+
+  const handleCloseModal = () => {
+    setOpenUpdateBook(false);
+  }
+
+  function deleteThisBook(event) {
+    let id = event.target.id;
+    deleteBook(id);
+  }
+
+  // const handleOpenUpdateBook = (book) => {
+  //   setOpenUpdateBook(true);
+  // }
   
   return (
     <>
+
       <h2>Books</h2>
 
-      <button onClick={() => props.handleAddBook({})}>Add a book!</button>
+      <AddBook
+      handleAddBook={addBook}
+      openSesame={openNewBookModal}
+      closeSesame={handleCloseNewBookModal}
+
+      />
+      <button onClick={() => handleSubmit()}>Add a book!</button>
 
       {/* <BookFormModal show={openAddBook} onHide={() => {
         setOpenAddBook(false);
@@ -35,7 +141,7 @@ function BestBooks(props) {
         }} handleAddBook={props.handleAddBook}></BookFormModal> */}
 
       <Carousel>
-        {props.books.map((book) => (
+        {books.map((book) => (
           <Carousel.Item key={book._id}>
             <img
               className="d-block w-100"
@@ -51,23 +157,30 @@ function BestBooks(props) {
             <button id={book._id} onClick={deleteThisBook}>
               Delete a book!
             </button>
-            <button onClick={() => props.handleUpdateBook(book)}>
+            {/* <button onClick={() => updateBook(book)}>
               Update Book!
-            </button>
+            </button> */}
             <button onClick={() => handleEditBook(book._id)}>Edit Me</button>
             {/* find a way to show and hide the updateformbook component. When show is = true, then show the edit me button */}
             <When condition={selectedBookId === book._id}>
-              <UpdateFormBook
+              {/* <UpdateFormBook
                 selectedBook={book}
                 handleUpdateBook={props.handleUpdateBook}
                 setSelectedBookId={setSelectedBookId}
+              /> */}
+              <BookModal 
+              book={book}
+              updateBook={updateBook}
+              openUpdateBook={openUpdateBook}
+              handleCloseModal={handleCloseModal}
               />
             </When>
           </Carousel.Item>
         ))}
       </Carousel>
+
     </>
   );
 }
-}
+
 export default BestBooks;
